@@ -9,5 +9,11 @@
     #content
     
       %h1 Folksonomatron
+      
+      %p Enter a URL and get back its delicious tags..
+      
+      %form{:action => "/mungepost", :method => "post"}
+        %input{:type => "text", :name => "url", :class => "text", :value => (@url || ""), :title => "Enter a URL"}
+        %input{:type => "submit"}
     
       = yield
