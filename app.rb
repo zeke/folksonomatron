@@ -1,5 +1,3 @@
-# %w{rubygems sinatra hpricot mechanize}.each {|lib| require lib}
-
 get '/' do
   haml :index
 end
@@ -10,12 +8,20 @@ post '/mungepost' do
 end
 
 get '/munge/*' do
+  content_type :json
   agent = WWW::Mechanize.new
-  @url = params[:splat]
-  page = agent.get "http://del.icio.us/url/check?show=notes_only&url=#{@url}"
+  @url = params[:splat].last
+  
+  delicious_url = "http://del.icio.us/url/check?show=notes_only&url=#{@url}"
+  page = agent.get(delicious_url)
+  
+  # page.inspect
   doc = Hpricot(page.parser.to_s)
+  
+  # doc.to_yaml
+  
   @tags = (doc/"a.showTag").map {|a| a.attributes['href'].split("/").last }
-  haml :munge
+  @tags.to_json
 end
 
 get '/stylesheets/stylesheet.css' do

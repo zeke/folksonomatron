@@ -1,7 +1,19 @@
-%w{rubygems sinatra hpricot mechanize}.each {|lib| require lib}
+# set :run, false
+# set :public, './public'
+# set :views, './views'
+# set :environment, :production
+# run Sinatra::Application
 
-disable :run
+require 'rubygems'
+require 'bundler'
 
-require 'app'
+Bundler.require
 
-run Sinatra.application
+require './app'
+
+configure :development do
+  enable :logging, :dump_errors, :raise_errors  
+end
+
+run Sinatra::Application
+# run MySinatraApp

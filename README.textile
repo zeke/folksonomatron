@@ -1,7 +1,0 @@
-h1. Folksonomatron
-
-You give Folksonomatron a URL, and it gives you back a comma-separated list of that URL's most popular tags, according to "delicious.com":http://delicious.com. This service will likely grow into a more robust tag suggestion service, with aggregate tag lists from sites other than delicious, but this is a start. I plan to use it to build an ajaxy tag suggestion mechanism for "Queriac":http://queri.ac
-
-Folksonomatron leverages Sinatra, a web application framework written in Ruby.
-
-For more info, see "the blog post":http://zeke.sikelianos.com/2009/01/introducing-folksonomatron

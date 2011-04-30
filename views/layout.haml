@@ -1,19 +1,17 @@
 !!!
 %html
   %head
-    %title Folksonomatron
+    %title folksonomatron
     %link{:rel => 'stylesheet', :href => '/stylesheets/stylesheet.css', :type => 'text/css', :media => "screen, projection"}
 
   %body
     
     #content
     
-      %h1 Folksonomatron
+      %h1 folksonomatron
       
-      %p Enter a URL and get back its delicious tags..
       
       %form{:action => "/mungepost", :method => "post"}
-        %input{:type => "text", :name => "url", :class => "text", :value => (@url || ""), :title => "Enter a URL"}
-        %input{:type => "submit"}
+        %input{:type => "text", :name => "url", :class => "text", :value => (@url || ""), :placeholder => "Enter a URL, get back its tags as JSON"}
     
       = yield
