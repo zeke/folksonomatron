@@ -12,6 +12,9 @@ get '/munge/*' do
   agent = WWW::Mechanize.new
   @url = params[:splat].last
   
+https://api.del.icio.us/v1/posts/
+  
+  https://api.del.icio.us/v1/posts/
   delicious_url = "http://del.icio.us/url/check?show=notes_only&url=#{@url}"
   page = agent.get(delicious_url)
   
